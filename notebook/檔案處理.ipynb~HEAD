@@ -11,32 +11,16 @@
    "cell_type": "code",
    "execution_count": null,
    "metadata": {
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
     "collapsed": true
-=======
-    "collapsed": false,
-    "deletable": true,
-    "editable": true
->>>>>>> 206b8d174ea1cb9566b84eb32dc8239dc769fe7d:notebook/改檔名.ipynb
-=======
-    "collapsed": true
->>>>>>> 18a6a724c84aa1532fb7d0ba587189e855d20fd1:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
    },
    "outputs": [],
    "source": [
     "import os\n",
-    "rootdir = r\"D:\\GitHub\\KanripoXML\\data\"\n",
-    "folderList = []\n",
+    "rootdir = r\"D:\\kanripo_div\"\n",
     "for root, subdirs, files in os.walk(rootdir):\n",
     "    for file in files:\n",
-    "        if file[0:4].upper() in folderList:\n",
-    "            pass\n",
-    "        else:\n",
-    "            os.makedirs(rootdir+\"\\\\\"+\"KR\"+file[2:4])\n",
-    "            folderList.append(file[:4].upper())\n",
-    "        os.rename(os.path.join(root,file), os.path.join(rootdir,file[0:4], file))\n",
-    "print(\"We're done.\")"
+    "        os.rename(os.path.join(root,file), os.path.join(root,file+\".xml\"))\n",
+    "print (\"We're done.\")"
    ]
   },
   {
@@ -48,22 +32,23 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
+   "execution_count": 1,
    "metadata": {},
-=======
-   "metadata": {
-    "collapsed": true
-   },
->>>>>>> 206b8d174ea1cb9566b84eb32dc8239dc769fe7d:notebook/改檔名.ipynb
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "We're done.\n"
+     ]
+    }
+   ],
    "source": [
     "import os\n",
-    "rootdir = r\"G:\\我的雲端硬碟\\資料\\全文\\漢語大詞典\\text\"\n",
+    "rootdir = r\"G:\\小組雲端硬碟\\儒家經典注疏\\十三經注疏\\漢子電子文獻-刪校勘記\"\n",
     "for root, subdirs, files in os.walk(rootdir):\n",
     "    for file in files:\n",
-    "        if file[:12]==\"-Unlicensed-\":\n",
-    "            os.rename(os.path.join(root,file), os.path.join(root,file[12:]))\n",
+    "        os.rename(os.path.join(root,file), os.path.join(root,file+\".xml\"))\n",
     "print (\"We're done.\")"
    ]
   },
@@ -71,17 +56,7 @@
    "cell_type": "code",
    "execution_count": null,
    "metadata": {
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
     "collapsed": true
-=======
-    "collapsed": false,
-    "deletable": true,
-    "editable": true
->>>>>>> 206b8d174ea1cb9566b84eb32dc8239dc769fe7d:notebook/改檔名.ipynb
-=======
-    "collapsed": true
->>>>>>> 18a6a724c84aa1532fb7d0ba587189e855d20fd1:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
    },
    "outputs": [],
    "source": [
@@ -105,17 +80,7 @@
    "cell_type": "code",
    "execution_count": null,
    "metadata": {
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
     "collapsed": true
-=======
-    "collapsed": false,
-    "deletable": true,
-    "editable": true
->>>>>>> 206b8d174ea1cb9566b84eb32dc8239dc769fe7d:notebook/改檔名.ipynb
-=======
-    "collapsed": true
->>>>>>> 18a6a724c84aa1532fb7d0ba587189e855d20fd1:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
    },
    "outputs": [],
    "source": [
@@ -160,17 +125,7 @@
    "cell_type": "code",
    "execution_count": null,
    "metadata": {
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
     "collapsed": true
-=======
-    "collapsed": false,
-    "deletable": true,
-    "editable": true
->>>>>>> 206b8d174ea1cb9566b84eb32dc8239dc769fe7d:notebook/改檔名.ipynb
-=======
-    "collapsed": true
->>>>>>> 18a6a724c84aa1532fb7d0ba587189e855d20fd1:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
    },
    "outputs": [],
    "source": [
@@ -230,7 +185,7 @@
     "import os.path\n",
     "rootdir = r\"D:\\AS\\漢籍十三經注疏\"\n",
     "missingFiles=[]\n",
-    "for i in range(0,2754):\n",
+    "for i in range(11933,12821):\n",
     "    if os.path.isfile(os.path.join(rootdir, str(i).strip()+\".html\")):\n",
     "        pass\n",
     "    else:\n",
@@ -250,140 +205,8 @@
    "cell_type": "code",
    "execution_count": null,
    "metadata": {
-    "collapsed": true,
-    "scrolled": true
-   },
-   "outputs": [],
-   "source": [
-    "import os\n",
-    "from bs4 import BeautifulSoup\n",
-    "rootdir = r\"D:\\GitHub\\hyylk\\data\"\n",
-    "outdir = r\"D:\\temp\\data\"\n",
-    "titleList = []           \n",
-    "fileCount = 0\n",
-    "for root, subdirs, files in os.walk(rootdir):\n",
-    "    for file in files:\n",
-    "        openFile = open(os.path.join(root,file), \"r\", encoding=\"utf8\")\n",
-    "        soup=BeautifulSoup(openFile, \"xml\")\n",
-    "        soup.title.string=file[:-4]\n",
-    "        writeDir = root.split(\"\\\\\")[-1]\n",
-    "        inFile = open(os.path.join(outdir,writeDir,file), \"w\", encoding=\"utf8\")\n",
-    "        inFile.write(soup.prettify())\n",
-    "        inFile.close\n",
-    "        openFile.close\n",
-    "print(\"We're done here.\")"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
     "collapsed": true
    },
-   "source": [
-    "刪檔案"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 3,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "We're done.\n"
-     ]
-    }
-   ],
-   "source": [
-    "import os\n",
-    "rootDir = r\"C:\\Users\\Ping-tzu 2 Chu A1\\Downloads\"\n",
-    "for i in range(13857,22240):\n",
-    "    try:\n",
-    "        os.remove(rootDir+\"\\\\\"+str(i).strip()+\".html\")\n",
-    "    except:\n",
-    "        pass\n",
-    "print(\"We're done.\")"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "移動檔"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 1,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "[14757, 22729, 22733, 22736, 24140]\n",
-      "We're done.\n"
-     ]
-    }
-   ],
-   "source": [
-    "import os, shutil\n",
-    "rootDir = r\"C:\\Users\\Ping-tzu 2 Chu A1\\Downloads\"\n",
-    "targetDir = r\"D:\\AS\\宋會要輯稿\"\n",
-    "problem = []\n",
-    "for i in range(13857, 24166):\n",
-    "    try:\n",
-    "        shutil.copy(rootDir+\"\\\\\"+str(i).strip()+\".html\", targetDir+\"\\\\\"+str(i).strip()+\".html\")\n",
-    "        os.remove(rootDir+\"\\\\\"+str(i).strip()+\".html\")\n",
-    "    except:\n",
-    "        problem.append(i)\n",
-    "print(problem)\n",
-    "print(\"We're done.\")"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "collapsed": true
-   },
-   "source": [
-    "刪資料夾"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 8,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "We're done.\n"
-     ]
-    }
-   ],
-   "source": [
-    "import shutil, os\n",
-    "rootDir = r\"C:\\Users\\Ping-tzu 2 Chu A1\\Downloads\"\n",
-    "missings=[]\n",
-    "for root, subdirs, files in os.walk(rootDir):\n",
-    "    for subdir in subdirs:\n",
-    "        try:\n",
-    "            shutil.rmtree(root+\"\\\\\"+subdir, ignore_errors=True)\n",
-    "            print(subdir)\n",
-    "        except:\n",
-    "            missings.append(subdir)\n",
-    "print(missings)\n",
-    "print(\"We're done.\")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
    "outputs": [],
    "source": [
     "import os\n",
@@ -397,13 +220,35 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
+   "cell_type": "markdown",
    "metadata": {
     "collapsed": true
    },
-   "outputs": [],
-   "source": []
+   "source": [
+    "改檔名"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "We're done.\n"
+     ]
+    }
+   ],
+   "source": [
+    "import os\n",
+    "filePath = \"F:\\AS\\incoming\"\n",
+    "for i in range(11933, 12822):\n",
+    "    os.rename(os.path.join(filePath+\"\\\\\"+str(i).strip()+\".html\"), \n",
+    "              os.path.join(filePath+\"\\\\\"+str(i-9).strip()+\".html\"))\n",
+    "print(\"We're done.\")"
+   ]
   },
   {
    "cell_type": "code",
@@ -432,11 +277,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-<<<<<<< HEAD:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
    "version": "3.6.3"
-=======
-   "version": "3.6.2"
->>>>>>> 18a6a724c84aa1532fb7d0ba587189e855d20fd1:notebook/.ipynb_checkpoints/檔案處理-checkpoint.ipynb
   }
  },
  "nbformat": 4,
